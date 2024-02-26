@@ -1,21 +1,39 @@
-#include<iostream>
+ #include <iostream>
 using namespace std;
 
-int main(){
-    int n;
-    int swap;
-    int arr[]={8,5,3,6,10};
-    
-    for(int i=1;i<n;i++){
-        bool swapped=false;
-        for(int j=0;j<n-1;j++){
-            if(arr[j]>arr[j+1]){
-                swap(arr[],arr[j+1]);
-                swapped=true;
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        
+        for (int j = 0; j < n - i - 1; j++) {
+            
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
-
         }
-        if(swapped==false)
-        break;
     }
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter " << n << " elements of the array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+   
+    bubbleSort(arr, n);
+
+    cout << "Sorted array: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
